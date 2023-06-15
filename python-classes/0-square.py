@@ -4,5 +4,5 @@
 """CLASS SQUARE"""
 
 class Square:
-    #represent a square
-    pass
+    def __init__(self):
+        pass
