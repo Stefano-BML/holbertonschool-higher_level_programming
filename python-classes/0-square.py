@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+# 0-square.py
+# Stefano madueno
+"""Define a class Square."""
+
+
 class Square:
-    def __init__(self):
-        pass
+    """Represent a square."""
+    pass
