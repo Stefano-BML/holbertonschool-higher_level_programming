@@ -2,20 +2,21 @@
 """
 Lists all states with a name starting with N
 """
+
 import sys
 import MySQLdb
 
-if __name__ == '__main__':
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
-                         db=sys.argv[3], port=3306)
+if __name__ == "__main__":
+    mySQL_u = sys.argv[1]
+    mySQL_p = sys.argv[2]
+    db_name = sys.argv[3]
 
-    cur = db.cursor()
-    cur.execute("SELECT * \
-    FROM states \
-    WHERE CONVERT(`name` USING Latin1) \
-    COLLATE Latin1_General_CS \
-    LIKE 'N%';")
-    states = cur.fetchall()
+    # By default, it will connect to localhost:3306 i think
+    db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
+    c = db.cursor()
 
-    for state in states:
-        print(state)
+    c.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
+    rows = c.fetchall()
+
+    for row in rows:
+        print(row)
