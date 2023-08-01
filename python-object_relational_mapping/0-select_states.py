@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Data base with states in USA """
+
 import sys
 import MySQLdb
 
